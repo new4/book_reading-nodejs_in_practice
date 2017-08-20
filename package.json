@@ -1,0 +1,26 @@
+{
+  "name": "book_reading-nodejs_in_practice",
+  "version": "1.0.0",
+  "description": "reading Node.js in Practice",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/new4/book_reading-nodejs_in_practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/new4/book_reading-nodejs_in_practice/issues"
+  },
+  "homepage": "https://github.com/new4/book_reading-nodejs_in_practice#readme",
+  "devDependencies": {
+    "chalk": "^2.1.0"
+  }
+}

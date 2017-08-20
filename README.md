@@ -1,2 +1,14 @@
-# book_reading-nodejs_in_practice
-读书《Node.js in Practice》
+# 阅读笔记：Node.js in Practice
+
+## 1 安装与加载模块
+
+如何从 `npm` 加载一个第三方模块？
+
+用 `npm` 安装模块，用 `require` 加载模块。
+
+## 2 创建与管理模块
+
+如何将一个项目解耦至多个文件？
+
+通过 `exports` 对象。对象，方法以及变量都可以从一个文件中 `export` 出来用在其它任何地方。
+
