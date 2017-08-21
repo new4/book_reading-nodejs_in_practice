@@ -25,3 +25,10 @@
 ```js
 delete require.cache(require.resolve(id));
 ```
+
+## 3 加载一组相关的模块
+
+将一个目录下的相关文件组合起来，并且通过一个 `require` 来加载这些模块？
+
+`Node` 可以将目录作为模块，创建一个 `index.js` 的文件来加载各个模块，并把他们一起导出。
+
