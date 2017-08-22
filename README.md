@@ -50,4 +50,38 @@ path.join(__dirname, '../index.js');
 
 使用 `process.stdout` 与 `process.stdin`
 
+## 6 打印日志消息
+
+记录不同类型的消息到 `console`?
+
+```js
+console.log
+console.info
+console.error
+console.warn
+```
+
+`console` 对象的几个方法被用来输出不同类型的消息，它们会被写入相关的输出流中，因此可以 `pipe` 它们。
+
+格式占位符：
+
+|占位符|类型|例子|
+|---|---|---|
+|%s|String|'%s', 'value'|
+|%d|Number|'%d', 3.14|
+|%j|JSON|'%j', {name: 'alex'}|
+
+标准流：
+
+- 0 代表输入流
+- 1 代表输出流
+- 2 代表错误
+
+输出错误到文件可以这么写:
+
+```bash
+node ./example/index.js 2> errs-file.log
+```
+
+另一个是堆栈追踪： `console.trace()`
 
