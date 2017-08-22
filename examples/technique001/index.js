@@ -1,4 +1,5 @@
 /**
+ * 1 安装与加载模块
  * 安装并引入 chalk 模块
  */
 const chalk = require('chalk');

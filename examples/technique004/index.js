@@ -1,5 +1,5 @@
 /**
- * 使用路径
+ * 4 使用路径
  */
 const path = require('path');
 module.exports = () => {

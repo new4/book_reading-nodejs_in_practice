@@ -12,3 +12,6 @@ technique3.module3();
 
 let technique4 = require('./technique004');
 technique4();
+
+let technique5 = require('./technique005');
+technique5();

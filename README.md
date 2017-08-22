@@ -44,5 +44,10 @@ delete require.cache(require.resolve(id));
 path.join(__dirname, '../index.js');
 ```
 
+## 5 标准 I/O 流的读写
+
+从一个 `Node` 程序导出或导入数据？
+
+使用 `process.stdout` 与 `process.stdin`
 
 
