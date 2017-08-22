@@ -32,3 +32,17 @@ delete require.cache(require.resolve(id));
 
 `Node` 可以将目录作为模块，创建一个 `index.js` 的文件来加载各个模块，并把他们一起导出。
 
+## 4 使用路径
+
+打开一个不在模块系统中的文件？
+
+通过 `__dirname` 或 `__filename` 来找到文件的位置，它们保存着当前脚本的绝对路径。
+
+还可以使用 path 模块的 path.join 方法：
+
+```js
+path.join(__dirname, '../index.js');
+```
+
+
+

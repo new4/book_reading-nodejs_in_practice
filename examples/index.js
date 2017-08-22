@@ -9,3 +9,6 @@ let technique3 = require('./technique003');
 technique3.module1();
 technique3.module2();
 technique3.module3();
+
+let technique4 = require('./technique004');
+technique4();
