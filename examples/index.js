@@ -20,7 +20,10 @@ let technique6 = require('./technique006');
 // technique6();
 
 let technique7 = require('./technique007');
-// technique7();
+technique7();
 
 let technique8 = require('./technique008');
-technique8();
+// technique8();
+
+// let technique9 = require('./technique009');
+// technique9();

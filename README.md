@@ -102,3 +102,11 @@ node ./example/index.js 2> errs-file.log
 使用 `process.arch` 和 `process.platform` 属性。
 
 另外一些来自系统的信息可以通过 `process` 模块搜集，例如 `process.memoryUsage` 描述当前进程内存使用情况。
+
+## 9 传递命令行参数
+
+如何从命令行接受简单参数？
+
+使用 `process.argv`，数组 `process.argv` 可以检查有多少参数传入，如果有，那么头两个参数是 `node` 以及这个脚本的名字。
+
+另外一些来自系统的信息可以通过 `process` 模块搜集，例如 `process.memoryUsage` 描述当前进程内存使用情况。
