@@ -91,7 +91,14 @@ node ./example/index.js 2> errs-file.log
 
 通过 `console.time` 和 `console.timeEnd`
 
-这些方法基于 Date.now() 计算函数执行时间，精确到毫秒。
+这些方法基于 `Date.now()` 计算函数执行时间，精确到毫秒。
 
 可以使用第三方模块 [benchmark](https://github.com/bestiejs/benchmark.js) 获取更精确的基准，还可以结合 [microtime](https://github.com/wadey/node-microtime) 模块。
 
+## 8 获取平台信息
+
+基于操作系统或处理器架构运行特性的代码？
+
+使用 `process.arch` 和 `process.platform` 属性。
+
+另外一些来自系统的信息可以通过 `process` 模块搜集，例如 `process.memoryUsage` 描述当前进程内存使用情况。
