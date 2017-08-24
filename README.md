@@ -85,3 +85,13 @@ node ./example/index.js 2> errs-file.log
 
 另一个是堆栈追踪： `console.trace()`
 
+## 7 基准测试
+
+对耗时操作进行基准测试？
+
+通过 `console.time` 和 `console.timeEnd`
+
+这些方法基于 Date.now() 计算函数执行时间，精确到毫秒。
+
+可以使用第三方模块 [benchmark](https://github.com/bestiejs/benchmark.js) 获取更精确的基准，还可以结合 [microtime](https://github.com/wadey/node-microtime) 模块。
+
