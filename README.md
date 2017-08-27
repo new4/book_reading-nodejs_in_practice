@@ -110,3 +110,13 @@ node ./example/index.js 2> errs-file.log
 使用 `process.argv`，数组 `process.argv` 可以检查有多少参数传入，如果有，那么头两个参数是 `node` 以及这个脚本的名字。
 
 另外一些来自系统的信息可以通过 `process` 模块搜集，例如 `process.memoryUsage` 描述当前进程内存使用情况。
+
+## 10 退出程序
+
+程序需要在退出的时候指定退出码？
+
+使用 `process.exit()`
+
+`Node` 程序默认返回 0 的退出状态，意味着程序正常终止。任何非 0 的状态码被认为是一个错误。
+
+ 
