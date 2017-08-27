@@ -132,3 +132,14 @@ node ./example/index.js 2> errs-file.log
 对信号的监听可以满足 `Unix` 程序期待的行为，例如，许多服务器以及进程守护程序在收到 `SIGHUP` 信号时会重新加载配置文件。
 
 信号可以从任意的进程发送给其它进程，你的 `Node` 进程可以通过 `process.kill(pid, [signal])` 向另一个进程发送信号，此处 `kill` 并不意味着杀死，而是指发送了一个信号。
+
+## 12 通过 `setTimerout` 延迟执行函数
+
+想延迟执行一个函数？
+
+使用 `setTimerout`，并在需要的时候使用 `Function.prototype.bind`
+
+在需要的时候使用 `clearTimerout` 阻止定时函数执行。
+
+
+
