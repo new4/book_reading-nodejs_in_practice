@@ -228,6 +228,36 @@ data:[<mediatype>][;base64],<data>
 
 使用 `Buffer API` 创建自定义的二进制协议。
 
+## Events：玩转 EventEmitter
+
+### 19 从 `EventEmitter` 继承
+
+要使用 `EventEmitter`，首先必须继承于它。
+
+希望通过事件驱动的手段来解决问题？有一个类你希望在异步事件发生的时候来操作它？
+
+从 `EventEmitter` 继承，只要记得在类的构造函数中调用 `EventEmitter` 的构造函数即可。
+
+```js
+const util = require('util');
+const events = require('events');
+
+function MusicPlayer() {
+    events.EventEmitter.call(this);
+}
+
+util.inherits(MusicPlayer, events.EventEmitter);
+```
+
+结合一个简单的构造函数和 `util.inherits` 是创建自定义事件驱动类的最简单也是最常见方法。
+
+`on` - 绑定事件
+`emit` - 触发事件
+`removeListener` - 移除监听器
+`removeAllListener` - 移除所有监听器
+
+`Node` 中还将父类的构造函数保存在 `super_` 属性中。这样调用父类的构造函数变得简单。
+
 
 
 
