@@ -184,4 +184,28 @@ buf.toString(); // 默认转成 utf-8
 buf.toString('ascii'); // 指定转成 ascii
 ```
 
+## 16 使用 `Buffer` 来修改字符串编码
 
+需要将一个字符串的编码格式转换成另一种？
+
+使用 `Buffer API`。
+
+可以通过传入字符串来创建一个 `Buffer`：
+
+```js
+let buf = new Buffer(str);
+```
+
+当使用字符串创建 `Buffer` 时默认为 `UTF-8` 字符串，也可以指定编码：
+
+```js
+let buf = new Buffer(str, 'base64');
+```
+
+例如可以用来处理 `Data URIs`，`Data URIs` 允许一个资源以行内编码的形式存在于 web 页面中，`Data URLs` 由四个部分组成：前缀（data:)，指示数据类型的MIME类型，如果非文本则为可选的 base64 令牌，数据本身：格式如下：
+
+```hash
+data:[<mediatype>][;base64],<data>
+```
+
+可以将一个图片编码成 `Data URIs`。
