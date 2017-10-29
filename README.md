@@ -258,7 +258,25 @@ util.inherits(MusicPlayer, events.EventEmitter);
 
 `Node` 中还将父类的构造函数保存在 `super_` 属性中。这样调用父类的构造函数变得简单。
 
+### 20 混合 `EventEmitter`
 
+除了将 `EventEmitter` 作为父类来继承，还可以将它的方法拷贝到另外一个类中。这种情况适用于当你有一个现成的类，并且不能简单地将它继承 `EventEmitter` 的时候很有用。
+
+通过 `for-in` 循环就足以将属性从一个原型对象拷贝到另一个原型对象上。
+
+```js
+const EventEmitter = require('events').EventEmitter;
+
+function MusicPlayer(track) {
+    this.track = track;
+    this.playing = false;
+
+    for (let methodName in EventEmitter.prototype) {
+      this[methodName] = EventEmitter.prototype[methodName];
+    }
+    
+}
+```
 
 
 
