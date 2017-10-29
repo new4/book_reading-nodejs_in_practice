@@ -1,12 +1,14 @@
 # 阅读笔记：Node.js in Practice
 
-## 1 安装与加载模块
+## 全局变量：Node 环境
+
+### 1 安装与加载模块
 
 如何从 `npm` 加载一个第三方模块？
 
 用 `npm` 安装模块，用 `require` 加载模块。
 
-## 2 创建与管理模块
+### 2 创建与管理模块
 
 如何将一个项目解耦至多个文件？
 
@@ -26,13 +28,13 @@
 delete require.cache(require.resolve(id));
 ```
 
-## 3 加载一组相关的模块
+### 3 加载一组相关的模块
 
 将一个目录下的相关文件组合起来，并且通过一个 `require` 来加载这些模块？
 
 `Node` 可以将目录作为模块，创建一个 `index.js` 的文件来加载各个模块，并把他们一起导出。
 
-## 4 使用路径
+### 4 使用路径
 
 打开一个不在模块系统中的文件？
 
@@ -44,13 +46,13 @@ delete require.cache(require.resolve(id));
 path.join(__dirname, '../index.js');
 ```
 
-## 5 标准 I/O 流的读写
+### 5 标准 I/O 流的读写
 
 从一个 `Node` 程序导出或导入数据？
 
 使用 `process.stdout` 与 `process.stdin`
 
-## 6 打印日志消息
+### 6 打印日志消息
 
 记录不同类型的消息到 `console`?
 
@@ -85,7 +87,7 @@ node ./example/index.js 2> errs-file.log
 
 另一个是堆栈追踪： `console.trace()`
 
-## 7 基准测试
+### 7 基准测试
 
 对耗时操作进行基准测试？
 
@@ -95,7 +97,7 @@ node ./example/index.js 2> errs-file.log
 
 可以使用第三方模块 [benchmark](https://github.com/bestiejs/benchmark.js) 获取更精确的基准，还可以结合 [microtime](https://github.com/wadey/node-microtime) 模块。
 
-## 8 获取平台信息
+### 8 获取平台信息
 
 基于操作系统或处理器架构运行特性的代码？
 
@@ -103,7 +105,7 @@ node ./example/index.js 2> errs-file.log
 
 另外一些来自系统的信息可以通过 `process` 模块搜集，例如 `process.memoryUsage` 描述当前进程内存使用情况。
 
-## 9 传递命令行参数
+### 9 传递命令行参数
 
 如何从命令行接受简单参数？
 
@@ -111,7 +113,7 @@ node ./example/index.js 2> errs-file.log
 
 另外一些来自系统的信息可以通过 `process` 模块搜集，例如 `process.memoryUsage` 描述当前进程内存使用情况。
 
-## 10 退出程序
+### 10 退出程序
 
 程序需要在退出的时候指定退出码？
 
@@ -119,7 +121,7 @@ node ./example/index.js 2> errs-file.log
 
 `Node` 程序默认返回 0 的退出状态，意味着程序正常终止。任何非 0 的状态码被认为是一个错误。
 
-## 11 响应信号量
+### 11 响应信号量
 
 需要响应其他进程发出的信号？
 
@@ -133,7 +135,7 @@ node ./example/index.js 2> errs-file.log
 
 信号可以从任意的进程发送给其它进程，你的 `Node` 进程可以通过 `process.kill(pid, [signal])` 向另一个进程发送信号，此处 `kill` 并不意味着杀死，而是指发送了一个信号。
 
-## 12 通过 `setTimerout` 延迟执行函数
+### 12 通过 `setTimerout` 延迟执行函数
 
 想延迟执行一个函数？
 
@@ -141,7 +143,7 @@ node ./example/index.js 2> errs-file.log
 
 在需要的时候使用 `clearTimerout` 阻止定时函数执行。
 
-## 13 通过 `setInterval` 定时调用回调函数
+### 13 通过 `setInterval` 定时调用回调函数
 
 想以一个固定时间间隔运行函数？
 
@@ -149,7 +151,7 @@ node ./example/index.js 2> errs-file.log
 
 在需要的时候使用 `clearInterval` 阻止定时函数执行。
 
-## 14 安全地操作异步接口
+### 14 安全地操作异步接口
 
 写一个方法返回一个 `EventEmitter` 实例，或者允许一个回调仅在有些时候调用一个异步接口，而不是所有时候？
 
@@ -159,7 +161,7 @@ node ./example/index.js 2> errs-file.log
 
 例如异步地从磁盘上读取一个文件，读取完成后在内存中缓存这个文件，之后的调用会直接返回缓存的内容。这就需要通过调用 `process.nextTick` 来将之后的调用行为以异步的方式来执行。
 
-### 可视化事件轮询 `setImmediate` 和 `process.maxTickDepth`
+#### 可视化事件轮询 `setImmediate` 和 `process.maxTickDepth`
 
 `setImmediate` 以及 `clearImmediate` 会在下一次 I/O 事件后并在 `setTimeout` 和 `setInterval` 之前执行。
 
@@ -169,7 +171,9 @@ node ./example/index.js 2> errs-file.log
 
 一次事件循环迭代中的顺序通常为：I/O事件 -> setImmediate -> setInterval -> process.nextTick
 
-## 15 Buffer 转换成其他格式
+## Buffer：使用比特、字节以及编码
+
+### 15 Buffer 转换成其他格式
 
 如果没有指定编码格式，默认情况返回 `Buffer` 数据，`Buffer` 数据很容易转换成其他格式。
 
@@ -184,7 +188,7 @@ buf.toString(); // 默认转成 utf-8
 buf.toString('ascii'); // 指定转成 ascii
 ```
 
-## 16 使用 `Buffer` 来修改字符串编码
+### 16 使用 `Buffer` 来修改字符串编码
 
 需要将一个字符串的编码格式转换成另一种？
 
@@ -210,7 +214,7 @@ data:[<mediatype>][;base64],<data>
 
 可以将一个图片编码成 `Data URIs`。
 
-## 17 使用 `Buffer` 来转换原始数据
+### 17 使用 `Buffer` 来转换原始数据
 
 将一个二进制文件转换成更有用的数据格式？
 
@@ -218,7 +222,7 @@ data:[<mediatype>][;base64],<data>
 
 例如按照约定的规则来解析一个二进制数据文件为 json 文件。
 
-## 18 创建自己的网络协议
+### 18 创建自己的网络协议
 
 你需要一种在进程或者网络之间高效通信的方法？
 
