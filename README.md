@@ -141,5 +141,11 @@ node ./example/index.js 2> errs-file.log
 
 在需要的时候使用 `clearTimerout` 阻止定时函数执行。
 
+## 13 通过 `setInterval` 定时调用回调函数
 
+想以一个固定时间间隔运行函数？
+
+使用 `setInterval`，并在需要的时候使用 `Function.prototype.bind`
+
+在需要的时候使用 `clearInterval` 阻止定时函数执行。
 
