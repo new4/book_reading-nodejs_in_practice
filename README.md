@@ -169,4 +169,19 @@ node ./example/index.js 2> errs-file.log
 
 一次事件循环迭代中的顺序通常为：I/O事件 -> setImmediate -> setInterval -> process.nextTick
 
+## 15 Buffer 转换成其他格式
+
+如果没有指定编码格式，默认情况返回 `Buffer` 数据，`Buffer` 数据很容易转换成其他格式。
+
+你需要将一个 `Buffer` 转换成文本格式？
+
+使用 `Buffer API`。
+
+`Buffer` 类型提供了 `toString` 方法将数据转换成 `UTF-8` 编码的字符串，默认就是转成 `UTF-8`。
+
+```js
+buf.toString(); // 默认转成 utf-8
+buf.toString('ascii'); // 指定转成 ascii
+```
+
 
