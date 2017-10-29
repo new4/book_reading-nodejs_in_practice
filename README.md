@@ -149,3 +149,24 @@ node ./example/index.js 2> errs-file.log
 
 在需要的时候使用 `clearInterval` 阻止定时函数执行。
 
+## 14 安全地操作异步接口
+
+写一个方法返回一个 `EventEmitter` 实例，或者允许一个回调仅在有些时候调用一个异步接口，而不是所有时候？
+
+使用 `process.nextTick` 来包装一个同步操作。
+
+`process.nextTick` 方法允许将一个毁掉放在下一个事件轮询队列的头上。比 `setTimeout` 更有效率。
+
+例如异步地从磁盘上读取一个文件，读取完成后在内存中缓存这个文件，之后的调用会直接返回缓存的内容。这就需要通过调用 `process.nextTick` 来将之后的调用行为以异步的方式来执行。
+
+### 可视化事件轮询 `setImmediate` 和 `process.maxTickDepth`
+
+`setImmediate` 以及 `clearImmediate` 会在下一次 I/O 事件后并在 `setTimeout` 和 `setInterval` 之前执行。
+
+多个 `process.nextTick` 语句总是在当前执行栈一次执行完，多个 `setImmediate` 可能则需要多次 loop 才能执行完。由于 `process.nextTick` 指定的回调函数是在本次 "事件循环" 触发，而 `setImmediate` 指定的是在下次 "事件循环" 触发，所以很显然，前者总是比后者发生得早，而且执行效率也高（因为不用检查任务队列）。
+
+传入 `process.nextTick` 的回调通常在当前的事件轮询结束后执行， 可以被安全执行的回调数量被 `process.maxTickDepth` 控制，默认 1000，以允许 I/O 操作可以继续被处理。
+
+一次事件循环迭代中的顺序通常为：I/O事件 -> setImmediate -> setInterval -> process.nextTick
+
+
