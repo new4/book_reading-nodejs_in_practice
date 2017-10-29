@@ -49,5 +49,8 @@
 // let technique16 = require('./technique016');
 // technique16();
 
-let technique17 = require('./technique017');
-technique17();
+// let technique17 = require('./technique017');
+// technique17();
+
+let technique18 = require('./technique018');
+technique18();
