@@ -1,5 +1,4 @@
-// let technique1 = require('./technique001');
-// technique1();
+// require('./technique001')();
 
 // let technique2 = require('./technique002');
 // technique2.method1();
@@ -10,53 +9,21 @@
 // technique3.module2();
 // technique3.module3();
 
-// let technique4 = require('./technique004');
-// technique4();
-
-// let technique5 = require('./technique005');
-// technique5();
-
-// let technique6 = require('./technique006');
-// technique6();
-
-// let technique7 = require('./technique007');
-// technique7();
-
-// let technique8 = require('./technique008');
-// technique8();
-
-// let technique9 = require('./technique009');
-// technique9();
-
-// let technique10 = require('./technique010');
-// technique10();
-
-// let technique11 = require('./technique011');
-// technique11();
-
-// let technique12 = require('./technique012');
-// technique12();
-
-// let technique13 = require('./technique013');
-// technique13();
-
-// let technique14 = require('./technique014');
-// technique14();
-
-// let technique15 = require('./technique015');
-// technique15();
-
-// let technique16 = require('./technique016');
-// technique16();
-
-// let technique17 = require('./technique017');
-// technique17();
-
-// let technique18 = require('./technique018');
-// technique18();
-
-// let technique19 = require('./technique019');
-// technique19();
-
-let technique20 = require('./technique020');
-technique20();
+// require('./technique004')();
+// require('./technique005')();
+// require('./technique006')();
+// require('./technique007')();
+// require('./technique008')();
+// require('./technique009')();
+// require('./technique010')();
+// require('./technique011')();
+// require('./technique012')();
+// require('./technique013')();
+// require('./technique014')();
+// require('./technique015')();
+// require('./technique016')();
+// require('./technique017')();
+// require('./technique018')();
+// require('./technique019')();
+// require('./technique020')();
+require('./technique021')();
