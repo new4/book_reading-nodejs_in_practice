@@ -26,3 +26,5 @@
 // require('./technique018')();
 // require('./technique019')();
 // require('./technique020')();
+
+require('./technique021')();
